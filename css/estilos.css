@@ -1,0 +1,13 @@
+body {
+  font-family: "Cinzel", serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-family: "Solitreo", cursive;
+  padding: 10%; }
+  body h1 {
+    text-align: center; }
+  body main .temas {
+    color: grey;
+    margin-left: 60px; }
+  body footer p {
+    font-size: 20px; }
