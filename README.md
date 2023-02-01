@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Belen</h1>
 <h3 align="center">Entrega final del curso de Javascript - Comision 39420</h3>
 
-- 🔭 Sitio web de administración de consorcios. Desde aquí podés: 
+ 🔭 Sitio web de administración de consorcios. Desde aquí podés: 
 <ul> 
 <li>Descargar tus expensas </li>
 <li>Informar pagos</li>
@@ -11,6 +11,8 @@
 </ul>
 <h3 align="left">Connect with me:</h3>
 <p align="left">
+Mail: mbbujan@gmail.com
+LinkedIn: https://www.linkedin.com/in/belenbujan/
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
