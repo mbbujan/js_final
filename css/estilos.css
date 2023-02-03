@@ -95,3 +95,14 @@ body {
       transition: 1s ease-in; }
       .login form #login-boton:hover {
         background-color: red; }
+
+/**************  INICIO  ********************/
+.inicio h2 {
+  text-align: center; }
+
+.inicio p {
+  margin-top: 3%;
+  margin-left: 5%; }
+
+.inicio ul {
+  margin-left: 7%; }
