@@ -1,0 +1,31 @@
+@import "../base/variables";
+
+/**************  LOGIN  ********************/
+.login {
+  @include estructura-flex(flex, column wrap, center, center);
+  form {
+    margin-top: 6%;
+    div {
+      input {
+        margin-top: 5%;
+        background: transparent;
+        width: 280px;
+        height: 35px;
+        color: nth($colores, 2);        
+        text-align: center;
+      }
+    }
+    #login-boton {
+      width: 280px;
+      height: 35px;
+      margin: 50px 0px 30px 0px;
+      border-radius: map-get($boton, borde);
+      color: map-get($boton, color-letra);
+      background-color: map-get($boton, color-fondo);
+      transition: map-get($boton, tiempo-animacion);
+      &:hover {
+        background-color: nth($colores, 5);
+      }
+    }
+  }
+}

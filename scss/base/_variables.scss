@@ -1,0 +1,49 @@
+//************  LISTAS  **********************
+// colores:
+//  1: fondo
+//  2: menu y formularios
+//  3: titulo
+//  4: cuerpo
+//  5: animaciones
+//
+$colores:
+white, 
+    black,  
+    green, 
+    #edaa44, 
+    red,
+    ;
+
+//* tamaños textos:
+//  1: 10px
+//  2: 11px
+//  3: 15px
+//  4: 20px
+//
+$size-letra:
+10px,
+11px,
+15px,
+20px;
+
+//************  MAPAS  **********************
+$boton:(
+    borde: 15px,
+    color-letra: nth($colores,1),
+    color-fondo: nth($colores,2),
+    tiempo-animacion: 1s ease-in,
+);
+
+//************  MIXIN  **********************
+@mixin estructura-flex($display_flex,$flow,$justify,$align){
+    display: $display_flex;
+    flex-flow: $flow;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin estructura-grid($display_grid,$columnas,$filas) {
+    display: $display_grid;
+    grid-template-columns: $columnas;
+    grid-template-rows: $filas;
+}

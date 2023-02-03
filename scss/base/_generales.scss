@@ -1,0 +1,13 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Formato letras y fondo de todo el sitio web */
+body {
+  background-color: nth($colores, 1);
+  font-family: "Raleway", sans-serif;
+}

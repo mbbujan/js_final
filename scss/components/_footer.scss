@@ -1,0 +1,36 @@
+.pie {
+  padding-left: 50px;
+  margin-top: 40px;
+  color: nth($colores, 2);
+  background-color: nth($colores, 1);
+  @include estructura-grid(grid, 2fr 2.5fr 1fr, 1);
+  grid-template-areas: "pie-nombre pie-contacto pie-redes";
+  .pie-nombre {
+    grid-area: pie-nombre;
+  }
+
+  .pie-contacto {
+    div {
+      display: flex;
+      justify-content: flex-start;
+      grid-area: pie-contacto;
+      img {
+        width: 3%;
+        height: 3%;
+      }
+      p {
+        margin: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .pie-redes {
+    grid-area: pie-redes;
+    a {
+      img {
+        width: 15%;
+      }
+    }
+  }
+}

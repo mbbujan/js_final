@@ -1,13 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* Formato letras y fondo de todo el sitio web */
 body {
-  font-family: "Cinzel", serif;
-  font-family: "Montserrat", sans-serif;
-  font-family: "Raleway", sans-serif;
-  font-family: "Solitreo", cursive;
-  padding: 10%; }
-  body h1 {
+  background-color: white;
+  font-family: "Raleway", sans-serif; }
+
+.pie {
+  padding-left: 50px;
+  margin-top: 40px;
+  color: black;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 2fr 2.5fr 1fr;
+  grid-template-rows: 1;
+  grid-template-areas: "pie-nombre pie-contacto pie-redes"; }
+  .pie .pie-nombre {
+    grid-area: pie-nombre; }
+  .pie .pie-contacto div {
+    display: flex;
+    justify-content: flex-start;
+    grid-area: pie-contacto; }
+    .pie .pie-contacto div img {
+      width: 3%;
+      height: 3%; }
+    .pie .pie-contacto div p {
+      margin: 0;
+      margin-left: 10px; }
+  .pie .pie-redes {
+    grid-area: pie-redes; }
+    .pie .pie-redes a img {
+      width: 15%; }
+
+.encabezado {
+  font-size: 15px; }
+  .encabezado a img {
+    height: 150px; }
+  .encabezado h1 {
     text-align: center; }
-  body main .temas {
-    color: grey;
-    margin-left: 60px; }
-  body footer p {
-    font-size: 20px; }
+
+.menu {
+  background-color: white; }
+  .menu .menu-logo a img {
+    height: 150px; }
+  .menu .menu-opciones {
+    display: flex;
+    list-style: none; }
+    .menu .menu-opciones li {
+      margin: 20px; }
+      .menu .menu-opciones li a {
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+        position: relative; }
+
+.menu .menu-opciones li a:before {
+  content: " ";
+  border-bottom: 2px solid red;
+  position: absolute;
+  bottom: -10px;
+  width: 10%;
+  opacity: 0;
+  transition: 1s; }
+
+.menu .menu-opciones li a.menu-activo::before,
+.menu .menu-opciones li a:hover::before {
+  opacity: 1;
+  width: 70%; }
+
+/**************  LOGIN  ********************/
+.login {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center; }
+  .login form {
+    margin-top: 6%; }
+    .login form div input {
+      margin-top: 5%;
+      background: transparent;
+      width: 280px;
+      height: 35px;
+      color: black;
+      text-align: center; }
+    .login form #login-boton {
+      width: 280px;
+      height: 35px;
+      margin: 50px 0px 30px 0px;
+      border-radius: 15px;
+      color: white;
+      background-color: black;
+      transition: 1s ease-in; }
+      .login form #login-boton:hover {
+        background-color: red; }
