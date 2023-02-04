@@ -11,7 +11,7 @@
         background: transparent;
         width: 280px;
         height: 35px;
-        color: nth($colores, 2);        
+        color: nth($colores, 2);
         text-align: center;
       }
     }
@@ -31,15 +31,58 @@
 }
 
 /**************  INICIO  ********************/
-.inicio{
-h2{
-  text-align: center;
+.inicio {
+  h2 {
+    text-align: center;
+  }
+  p {
+    margin-top: 3%;
+    margin-left: 5%;
+  }
+  ul {
+    margin-left: 7%;
+  }
 }
-p{
-  margin-top: 3%;
-  margin-left: 5%;
-}
-ul{
-  margin-left: 7%;
-}
+
+/**************  COMPRAS  ********************/
+.compras {
+  h2 {
+    text-align: center;
+  }
+
+  .compras-productos {
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 250px;
+    height: 350px;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    transition: 2s;
+    box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    -webkit-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    -moz-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    h3 {
+      text-align: center;
+      font-size: nth($size-letra, 4);
+    }
+    input {
+      margin-top: 20px;
+      text-decoration: none;
+      width: 100px;
+      height: 50px;
+      border-radius: map-get($boton-compras, borde);
+      color: map-get($boton-compras, color-letra);
+      background-color: map-get($boton-compras, color-fondo);
+      transition: map-get($boton-compras, tiempo-animacion);
+    }
+  }
 }
