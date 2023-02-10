@@ -3,20 +3,20 @@
   font-size: 15px;
   a {
     img {
-      height: 150px;
+      height: 250px;
     }
   }
   h1 {
     text-align: center;
   }
 }
-.menu { 
+.menu {
   background-color: nth($colores, 1);
 
   .menu-logo {
     a {
       img {
-        height: 150px;
+        height: 100px;
       }
     }
   }

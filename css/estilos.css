@@ -37,14 +37,14 @@ body {
 .encabezado {
   font-size: 15px; }
   .encabezado a img {
-    height: 150px; }
+    height: 250px; }
   .encabezado h1 {
     text-align: center; }
 
 .menu {
   background-color: white; }
   .menu .menu-logo a img {
-    height: 150px; }
+    height: 100px; }
   .menu .menu-opciones {
     display: flex;
     list-style: none; }
@@ -108,35 +108,44 @@ body {
   margin-left: 7%; }
 
 /**************  COMPRAS  ********************/
-.compras h2 {
-  text-align: center; }
+.compras {
+  /*  .compras-productos {
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 250px;
+    height: 350px;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    transition: 2s;
+    box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    -webkit-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    -moz-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
+    &:hover {
+      transform: scale(1.1);
+    }
 
-.compras .compras-productos {
-  margin-left: 40px;
-  margin-top: 40px;
-  width: 250px;
-  height: 350px;
-  border: 2px solid black;
-  text-align: center;
-  display: inline-block;
-  transition: 2s;
-  box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
-  -webkit-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75);
-  -moz-box-shadow: 4px 5px 11px 0px rgba(115, 112, 103, 0.75); }
-  .compras .compras-productos:hover {
-    transform: scale(1.1); }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    h3 {
+      text-align: center;
+      font-size: nth($size-letra, 4);
+    }
+    input {
+      margin-top: 20px;
+      text-decoration: none;
+      width: 100px;
+      height: 50px;
+      border-radius: map-get($boton-compras, borde);
+      color: map-get($boton-compras, color-letra);
+      background-color: map-get($boton-compras, color-fondo);
+      transition: map-get($boton-compras, tiempo-animacion);
+    } 
+  }*/ }
+  .compras h2 {
+    text-align: center; }
   .compras .compras-productos img {
     width: 200px;
     height: 200px; }
-  .compras .compras-productos h3 {
-    text-align: center;
-    font-size: 20px; }
-  .compras .compras-productos input {
-    margin-top: 20px;
-    text-decoration: none;
-    width: 100px;
-    height: 50px;
-    border-radius: 15px;
-    color: black;
-    background-color: #edaa44;
-    transition: 1s ease-in; }

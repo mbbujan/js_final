@@ -49,8 +49,13 @@
   h2 {
     text-align: center;
   }
-
-  .compras-productos {
+.compras-productos{
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+ /*  .compras-productos {
     margin-left: 40px;
     margin-top: 40px;
     width: 250px;
@@ -83,6 +88,6 @@
       color: map-get($boton-compras, color-letra);
       background-color: map-get($boton-compras, color-fondo);
       transition: map-get($boton-compras, tiempo-animacion);
-    }
-  }
+    } 
+  }*/
 }
