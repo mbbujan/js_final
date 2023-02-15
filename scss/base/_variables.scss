@@ -15,13 +15,6 @@ $boton: (
   tiempo-animacion: 1s ease-in,
 );
 
-$boton-compras: (
-  borde: 15px,
-  color-letra: nth($colores, 2),
-  color-fondo: nth($colores, 4),
-  tiempo-animacion: 1s ease-in,
-);
-
 //************  MIXIN  **********************
 @mixin estructura-flex($display_flex, $flow, $justify, $align) {
   display: $display_flex;
@@ -34,4 +27,21 @@ $boton-compras: (
   display: $display_grid;
   grid-template-columns: $columnas;
   grid-template-rows: $filas;
+}
+
+@mixin estructura-boton ($ancho, $alto, $margen-top, $margen-left, $margen-bottom, $margen-right){
+  width: $ancho;
+  height: $alto;       
+  margin-top: $margen-top; 
+  margin-left: $margen-left; 
+  margin-bottom: $margen-bottom;
+  margin-right: $margen-right; 
+  border-radius: map-get($boton, borde);
+  color: map-get($boton, color-letra);
+  background-color: map-get($boton, color-fondo);
+  transition: map-get($boton, tiempo-animacion);
+  &:hover {
+    background-color: nth($colores, 5);
+  }
+  
 }
