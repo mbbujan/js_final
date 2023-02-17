@@ -18,21 +18,22 @@ const cerrarSesion = new Opciones("CERRAR SESION", "../index.html");
 const arrayOpciones = [inicio, misDatos, expensas, sum, compras, cerrarSesion];
 
 const menuEncabezado = document.getElementById("menu-opciones");
+
 const generarMenuEncabezado = () => {
   arrayOpciones.forEach((opciones) => {
     if (opciones.nombre != "EXPENSAS") {
       const li = document.createElement("li");
+      li.innerHTML = `<a class="nav-link active " href="${opciones.ruta}">${opciones.nombre}</a>  `;
+
+      /*
       if(opciones.nombre!="COMPRAR"){
       li.innerHTML = `<a class="nav-link active " href="${opciones.ruta}">${opciones.nombre}</a>  `;
       }
       else{
         li.innerHTML = `<a class="nav-link active menu-activo" href="${opciones.ruta}">${opciones.nombre}</a>  `;
 
-      }
-      
+      }*/
       menuEncabezado.appendChild(li);
-
-      
     } else {
       const liquidaciones = new Opciones(
         "CONSULTAR LIQUIDACIONES",

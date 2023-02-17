@@ -116,7 +116,8 @@ body {
 
 .compras .compras-productos {
   margin-left: 2rem;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  margin-right: 2rem; }
   .compras .compras-productos img {
     width: 150px;
     height: 150px;

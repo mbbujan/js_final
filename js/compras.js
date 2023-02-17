@@ -12,8 +12,10 @@ const llaveEntrada = new Producto(
   200,
   "../img/llaveIngreso.jpeg"
 );
+const fichasLaundry = new Producto("Fichas Laundry", 120, '../img/laundry.png');
+const controlRemoto = new Producto("Control Remoto Garage", 1700, '../img/controlRemoto.jpeg');
 
-const arrayProductos = [llaveGarage, llaveEntrada];
+const arrayProductos = [llaveGarage, llaveEntrada, fichasLaundry, controlRemoto];
 
 const comprasProductos = document.getElementById("comprasProductos");
 
