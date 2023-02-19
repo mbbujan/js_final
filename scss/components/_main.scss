@@ -55,9 +55,13 @@
       align-items: center;
       margin: 0.5rem;
       padding: 1rem;
-      #compras-boton {
+      .btn {
         @include estructura-boton(100px, 35px, 0px, 0px, 0px, 0px);
       }
+    }
+    .listaCarrito{
+      margin-left: 10px;
+      color: blueviolet;
     }
   }
 }
