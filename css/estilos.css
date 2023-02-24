@@ -148,3 +148,9 @@ body {
 .compras .listaCarrito {
   margin-left: 10px;
   color: blueviolet; }
+
+.compras .compras-totales {
+  display: grid;
+  grid-template-columns: 7fr 1fr 1fr;
+  grid-template-rows: 1;
+  grid-template-areas: "compras-totales-1 compras-totales-2 compras-totales-3"; }

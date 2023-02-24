@@ -131,12 +131,11 @@ const calcularTotal = () => {
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 
 vaciarCarrito.addEventListener("click", () => {
-    eliminarTodoElCarrito();
+    vaciar();
 })
 
-const eliminarTodoElCarrito = () => {
+const vaciar = () => {
     carrito = []; 
     mostrarCarrito();
-
     localStorage.clear();
 }

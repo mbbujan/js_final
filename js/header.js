@@ -23,7 +23,7 @@ const generarMenuEncabezado = () => {
   arrayOpciones.forEach((opciones) => {
     if (opciones.nombre != "EXPENSAS") {
       const li = document.createElement("li");
-      li.innerHTML = `<a class="nav-link active " href="${opciones.ruta}">${opciones.nombre}</a>  `;
+      li.innerHTML = `<a class="nav-link active" href="${opciones.ruta}">${opciones.nombre}</a>  `;
 
       /*
       if(opciones.nombre!="COMPRAR"){
@@ -64,5 +64,7 @@ const generarMenuEncabezado = () => {
       menuEncabezado.appendChild(liExp);
     }
   });
+
 };
 generarMenuEncabezado();
+
