@@ -1,4 +1,11 @@
 @import "../base/variables";
+.paginaConstruccion {
+  img {
+    margin-left: 25%;
+    width: 60%;
+    height: 60%;
+  }
+}
 
 /**************  LOGIN  ********************/
 .login {
@@ -60,12 +67,12 @@
       }
     }
   }
-  .listaCarrito{
+  .listaCarrito {
     margin-left: 10px;
     color: blueviolet;
   }
-  .compras-totales{
-    @include estructura-grid(grid, 7fr 1fr 1fr, 1); 
+  .compras-totales {
+    @include estructura-grid(grid, 7fr 1fr 1fr, 1);
     grid-template-areas: "compras-totales-1 compras-totales-2 compras-totales-3";
   }
 }

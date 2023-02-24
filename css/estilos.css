@@ -74,6 +74,11 @@ body {
   opacity: 1;
   width: 70%; }
 
+.paginaConstruccion img {
+  margin-left: 25%;
+  width: 60%;
+  height: 60%; }
+
 /**************  LOGIN  ********************/
 .login {
   display: flex;
