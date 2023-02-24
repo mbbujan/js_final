@@ -23,7 +23,7 @@ const generarMenuEncabezado = () => {
   arrayOpciones.forEach((opciones) => {
     if (opciones.nombre != "EXPENSAS") {
       const li = document.createElement("li");
-      li.innerHTML = `<a class="nav-link active" href="${opciones.ruta}">${opciones.nombre}</a>  `;
+      li.innerHTML = `<a class="nav-link active ${opciones.nombre}" id="activo" href="${opciones.ruta}">${opciones.nombre}</a>  `;
 
       /*
       if(opciones.nombre!="COMPRAR"){
@@ -34,6 +34,7 @@ const generarMenuEncabezado = () => {
 
       }*/
       menuEncabezado.appendChild(li);
+
     } else {
       const liquidaciones = new Opciones(
         "CONSULTAR LIQUIDACIONES",
@@ -63,8 +64,22 @@ const generarMenuEncabezado = () => {
       `;
       menuEncabezado.appendChild(liExp);
     }
-  });
 
+  });
 };
 generarMenuEncabezado();
+/*
+$(document).ready(function(){
+ $("activo-COMPRAS").onClick = () => {
+     alert("click!");
+  }
+  const activoOpcion = document.getElementById("activo");
+  const activoClases = activoOpcion.classList;
+  
+  console.log(activoClases);
+  activoOpcion.addEventListener("click", () => {
+     activoClases.add("menu-activo");
+  })
 
+ //})
+*/
