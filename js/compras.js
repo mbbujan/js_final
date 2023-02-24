@@ -42,7 +42,7 @@ const arrayProductos = [
 
 let carrito = [];
 
-if(localStorage.getItem("carrito")){
+if (localStorage.getItem("carrito")) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
@@ -74,6 +74,8 @@ mostrarComprasProductos();
 // AGREGAR AL CARRITO COMPRAS
 const agregarAlCarrito = (id) => {
   const carritoCompras = carrito.find((producto) => producto.id === id);
+  
+  
   if (carritoCompras) {
     carritoCompras.cantidad++;
   } else {
@@ -87,16 +89,16 @@ const agregarAlCarrito = (id) => {
 
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
-verCarrito.addEventListener("click", () => {  
+verCarrito.addEventListener("click", () => {
   mostrarCarrito();
 });
 
 const mostrarCarrito = () => {
   contenedorCarrito.innerHTML = "";
   carrito.forEach((producto) => {
-    const list = document.createElement("div");    
+    const list = document.createElement("div");
     list.className = "listaCarrito";
-   list.innerHTML = ` <p> ${producto.nombre} - Precio por unidad:  ${producto.precio} - Cantidad: ${producto.cantidad} unidades
+    list.innerHTML = ` <p> ${producto.nombre} - Precio por unidad:  ${producto.precio} - Cantidad: ${producto.cantidad} unidades
                               <button class = "btn colorBoton" id="eliminar${producto.id}" > Eliminar </button>
                       </p>
                       `;

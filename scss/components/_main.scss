@@ -9,14 +9,14 @@
       input {
         margin-top: 5%;
         background: transparent;
-        width: 280px;
+        width: 380px;
         height: 35px;
         color: nth($colores, 2);
         text-align: center;
       }
     }
     #login-boton {
-      @include estructura-boton(280px, 35px, 50px, 0px, 30px, 0px);
+      @include estructura-boton(380px, 35px, 50px, 0px, 30px, 0px);
     }
   }
 }
@@ -59,9 +59,9 @@
         @include estructura-boton(100px, 35px, 0px, 0px, 0px, 0px);
       }
     }
-    .listaCarrito{
-      margin-left: 10px;
-      color: blueviolet;
-    }
+  }
+  .listaCarrito{
+    margin-left: 10px;
+    color: blueviolet;
   }
 }

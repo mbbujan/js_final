@@ -37,9 +37,13 @@ body {
 .encabezado {
   font-size: 15px; }
   .encabezado a img {
-    height: 250px; }
+    height: 150px; }
   .encabezado h1 {
     text-align: center; }
+
+.pie a img {
+  height: 80px;
+  width: 790px; }
 
 .menu {
   background-color: white; }
@@ -81,12 +85,12 @@ body {
     .login form div input {
       margin-top: 5%;
       background: transparent;
-      width: 280px;
+      width: 380px;
       height: 35px;
       color: black;
       text-align: center; }
     .login form #login-boton {
-      width: 280px;
+      width: 380px;
       height: 35px;
       margin-top: 50px;
       margin-left: 0px;
@@ -140,6 +144,7 @@ body {
       transition: 1s ease-in; }
       .compras .compras-productos .card .btn:hover {
         background-color: red; }
-  .compras .compras-productos .listaCarrito {
-    margin-left: 10px;
-    color: blueviolet; }
+
+.compras .listaCarrito {
+  margin-left: 10px;
+  color: blueviolet; }
