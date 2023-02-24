@@ -74,19 +74,17 @@ mostrarComprasProductos();
 // AGREGAR AL CARRITO COMPRAS
 const agregarAlCarrito = (id) => {
   const carritoCompras = carrito.find((producto) => producto.id === id);
-  
-  
-  if (carritoCompras) {
+   if (carritoCompras) {
     carritoCompras.cantidad++;
   } else {
     const producto = arrayProductos.find((producto) => producto.id === id);
     carrito.push(producto);
   }
+  calcularTotal();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 // MOSTRAR CARRITO COMPRAS
-
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
 verCarrito.addEventListener("click", () => {
@@ -103,5 +101,42 @@ const mostrarCarrito = () => {
                       </p>
                       `;
     contenedorCarrito.appendChild(list);
+    const boton = document.getElementById(`eliminar${producto.id}`);
+    boton.addEventListener("click", () => {
+        eliminarDelCarrito(producto.id);
+    })
   });
+  calcularTotal();
 };
+
+const eliminarDelCarrito = (id) => {
+  const producto = carrito.find(producto => producto.id === id);
+  const indice = carrito.indexOf(producto);
+  carrito.splice(indice, 1);
+  mostrarCarrito();
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+const total = document.getElementById("total");
+
+const calcularTotal = () => {
+    let totalCompra = 0; 
+    carrito.forEach(producto => {
+        totalCompra += producto.precio * producto.cantidad;
+        //+= es igual a poner totalComra = totalCompra + producto.precio * producto.cantidad 
+    })
+    total.innerHTML = `Total: $${totalCompra}`;
+}
+
+const vaciarCarrito = document.getElementById("vaciarCarrito");
+
+vaciarCarrito.addEventListener("click", () => {
+    eliminarTodoElCarrito();
+})
+
+const eliminarTodoElCarrito = () => {
+    carrito = []; 
+    mostrarCarrito();
+
+    localStorage.clear();
+}
