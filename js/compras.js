@@ -92,7 +92,7 @@ verCarrito.addEventListener("click", () => {
 });
 
 const mostrarCarrito = () => {
-  contenedorCarrito.innerHTML = "";
+  contenedorCarrito.innerHTML = ""; 
   carrito.forEach((producto) => {
     const list = document.createElement("div");
     list.className = "listaCarrito";
@@ -123,9 +123,9 @@ const calcularTotal = () => {
     let totalCompra = 0; 
     carrito.forEach(producto => {
         totalCompra += producto.precio * producto.cantidad;
-        //+= es igual a poner totalComra = totalCompra + producto.precio * producto.cantidad 
-    })
-    total.innerHTML = `Total: $${totalCompra}`;
+      })
+    total.innerHTML = `    
+            $${totalCompra}`;
 }
 
 const vaciarCarrito = document.getElementById("vaciarCarrito");
