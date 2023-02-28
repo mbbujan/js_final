@@ -123,7 +123,7 @@ const mostrarCarrito = () => {
 const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
-  (producto.cantidad===1)?(carrito.splice(indice, 1)):(producto.cantidad--);
+  producto.cantidad === 1 ? carrito.splice(indice, 1) : producto.cantidad--;
   mostrarCarrito();
 };
 
@@ -135,7 +135,7 @@ const sumarDelCarrito = (id) => {
 
 const eliminarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
-  producto.cantidad=1;
+  producto.cantidad = 1;
   const indice = carrito.indexOf(producto);
   carrito.splice(indice, 1);
   mostrarCarrito();
@@ -175,7 +175,19 @@ finalizarCompra.addEventListener("click", () => {
   carrito.forEach((producto) => {
     totalCompra += producto.precio * producto.cantidad;
   });
-  totalCompra>0?alert("Solicitado! En las expensas se te cargarán $ "+totalCompra):alert("El carrito de compras está vacío");
-  
-    });
-
+  totalCompra > 0
+    ? Swal.fire({
+        title: "Solicitado!",
+        icon: "success",
+        text: "En las expensas se te cargarán $" + totalCompra,
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#DD6B55",
+      })
+    : Swal.fire({
+        title: "Error",
+        icon: "error",
+        text: "El carrito de compras está vacío",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#DD6B55",
+      });
+});
