@@ -74,7 +74,7 @@ mostrarComprasProductos();
 // AGREGAR AL CARRITO COMPRAS
 const agregarAlCarrito = (id) => {
   const carritoCompras = carrito.find((producto) => producto.id === id);
-   if (carritoCompras) {
+  if (carritoCompras) {
     carritoCompras.cantidad++;
   } else {
     const producto = arrayProductos.find((producto) => producto.id === id);
@@ -92,7 +92,7 @@ verCarrito.addEventListener("click", () => {
 });
 
 const mostrarCarrito = () => {
-  contenedorCarrito.innerHTML = ""; 
+  contenedorCarrito.innerHTML = "";
   carrito.forEach((producto) => {
     const list = document.createElement("div");
     list.className = "listaCarrito";
@@ -103,39 +103,41 @@ const mostrarCarrito = () => {
     contenedorCarrito.appendChild(list);
     const boton = document.getElementById(`eliminar${producto.id}`);
     boton.addEventListener("click", () => {
-        eliminarDelCarrito(producto.id);
-    })
+      eliminarDelCarrito(producto.id);
+    });
   });
   calcularTotal();
 };
 
 const eliminarDelCarrito = (id) => {
-  const producto = carrito.find(producto => producto.id === id);
+  const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
   carrito.splice(indice, 1);
   mostrarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carrito));
-}
+};
 
 const total = document.getElementById("total");
 
 const calcularTotal = () => {
-    let totalCompra = 0; 
-    carrito.forEach(producto => {
-        totalCompra += producto.precio * producto.cantidad;
-      })
-    total.innerHTML = `    
-            $${totalCompra}`;
-}
+  let totalCompra = 0;
+  carrito.forEach((producto) => {
+    totalCompra += producto.precio * producto.cantidad;
+  });
+  total.innerHTML = `  <h3 class="compras-totales-1">
+    El total de la compra es de $${totalCompra}
+  </h3>  
+            `;
+};
 
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 
 vaciarCarrito.addEventListener("click", () => {
-    vaciar();
-})
+  vaciar();
+});
 
 const vaciar = () => {
-    carrito = []; 
-    mostrarCarrito();
-    localStorage.clear();
-}
+  carrito = [];
+  mostrarCarrito();
+  localStorage.clear();
+};

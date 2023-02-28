@@ -1,6 +1,6 @@
 @import "../base/variables";
 .encabezado {
-  font-size: 15px;
+  font-size: nth($size-letra, 3);;
   a {
     img {
       height: 150px;

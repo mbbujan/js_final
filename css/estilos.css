@@ -159,3 +159,5 @@ body {
   grid-template-columns: 7fr 1fr 1fr;
   grid-template-rows: 1;
   grid-template-areas: "compras-totales-1 compras-totales-2 compras-totales-3"; }
+  .compras .compras-totales h3 {
+    font-size: 20px; }
