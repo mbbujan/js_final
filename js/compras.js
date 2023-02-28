@@ -96,17 +96,45 @@ const mostrarCarrito = () => {
   carrito.forEach((producto) => {
     const list = document.createElement("div");
     list.className = "listaCarrito";
-    list.innerHTML = ` <p> ${producto.nombre} - Precio por unidad:  ${producto.precio} - Cantidad: ${producto.cantidad} unidades
-                              <button class = "btn colorBoton" id="eliminar${producto.id}" > Eliminar </button>
-                      </p>
-                      `;
+    list.innerHTML = ` <p> ${producto.nombre} - Precio por unidad:  ${producto.precio} - Cantidad: 
+    <img src="../img/minus.png" alt="Restar Producto" id="restar${producto.id}"
+    /> ${producto.cantidad} unidades
+    <img src="../img/plus.png" alt="Sumar Producto" id="sumar${producto.id}"
+    />
+    <img src="../img/delete.png" alt="Eliminar Producto" id="eliminar${producto.id}"
+    />       `;
     contenedorCarrito.appendChild(list);
-    const boton = document.getElementById(`eliminar${producto.id}`);
-    boton.addEventListener("click", () => {
+    const restarProducto = document.getElementById(`restar${producto.id}`);
+    restarProducto.addEventListener("click", () => {
+      restarDelCarrito(producto.id);
+    });
+    const sumarProducto = document.getElementById(`sumar${producto.id}`);
+    sumarProducto.addEventListener("click", () => {
+      sumarDelCarrito(producto.id);
+    });
+    const eliminarProducto = document.getElementById(`eliminar${producto.id}`);
+    eliminarProducto.addEventListener("click", () => {
       eliminarDelCarrito(producto.id);
     });
   });
   calcularTotal();
+};
+
+const restarDelCarrito = (id) => {
+  const producto = carrito.find((producto) => producto.id === id);
+  const indice = carrito.indexOf(producto);
+  (producto.cantidad===1)?(carrito.splice(indice, 1)):(producto.cantidad--);
+  mostrarCarrito();
+  //localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
+const sumarDelCarrito = (id) => {
+  const producto = carrito.find((producto) => producto.id === id);
+  //const indice = carrito.indexOf(producto);
+  producto.cantidad++;
+  //carrito.splice(indice, 1);
+  mostrarCarrito();
+  //localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const eliminarDelCarrito = (id) => {
@@ -116,6 +144,7 @@ const eliminarDelCarrito = (id) => {
   mostrarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
+
 
 const total = document.getElementById("total");
 

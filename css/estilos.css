@@ -153,6 +153,9 @@ body {
 .compras .listaCarrito {
   margin-left: 10px;
   color: blueviolet; }
+  .compras .listaCarrito img {
+    height: 20px;
+    width: 20px; }
 
 .compras .compras-totales {
   display: grid;

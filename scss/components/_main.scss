@@ -70,6 +70,10 @@
   .listaCarrito {
     margin-left: 10px;
     color: blueviolet;
+    img{
+      height: 20px;
+      width: 20px;
+      }
   }
   .compras-totales {
     @include estructura-grid(grid, 7fr 1fr 1fr, 1);
@@ -77,5 +81,7 @@
   h3{
     font-size: nth($size-letra, 4);;
   }
+  
   }
-}
+  }
+
