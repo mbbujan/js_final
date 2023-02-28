@@ -125,26 +125,22 @@ const restarDelCarrito = (id) => {
   const indice = carrito.indexOf(producto);
   (producto.cantidad===1)?(carrito.splice(indice, 1)):(producto.cantidad--);
   mostrarCarrito();
-  //localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const sumarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
-  //const indice = carrito.indexOf(producto);
   producto.cantidad++;
-  //carrito.splice(indice, 1);
   mostrarCarrito();
-  //localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const eliminarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
+  producto.cantidad=1;
   const indice = carrito.indexOf(producto);
   carrito.splice(indice, 1);
   mostrarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
 
 const total = document.getElementById("total");
 
