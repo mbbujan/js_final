@@ -149,9 +149,10 @@ const calcularTotal = () => {
   carrito.forEach((producto) => {
     totalCompra += producto.precio * producto.cantidad;
   });
-  total.innerHTML = `  <h3 class="compras-totales-1">
+  total.innerHTML = `  <h3 ">
     El total de la compra es de $${totalCompra}
   </h3>  
+
             `;
 };
 
@@ -166,3 +167,15 @@ const vaciar = () => {
   mostrarCarrito();
   localStorage.clear();
 };
+
+const finalizarCompra = document.getElementById("finalizarCompra");
+
+finalizarCompra.addEventListener("click", () => {
+  let totalCompra = 0;
+  carrito.forEach((producto) => {
+    totalCompra += producto.precio * producto.cantidad;
+  });
+  totalCompra>0?alert("Solicitado! En las expensas se te cargarán $ "+totalCompra):alert("El carrito de compras está vacío");
+  
+    });
+
