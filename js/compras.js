@@ -87,8 +87,9 @@ const agregarAlCarrito = (id) => {
 // MOSTRAR CARRITO COMPRAS
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
+
 verCarrito.addEventListener("click", () => {
-  mostrarCarrito();
+  mostrarCarrito()
 });
 
 const mostrarCarrito = () => {
@@ -120,6 +121,12 @@ const mostrarCarrito = () => {
   calcularTotal();
 };
 
+const ocultarCarrito= () =>{
+
+  const ocultar = document.getElementById("verCarrito")
+  ocultar.style.display = "none";
+}
+
 const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
@@ -149,11 +156,9 @@ const calcularTotal = () => {
   carrito.forEach((producto) => {
     totalCompra += producto.precio * producto.cantidad;
   });
-  total.innerHTML = `  <h3 ">
+  total.innerHTML = ` <h3 ">
     El total de la compra es de $${totalCompra}
-  </h3>  
-
-            `;
+  </h3>  `;
 };
 
 const vaciarCarrito = document.getElementById("vaciarCarrito");
