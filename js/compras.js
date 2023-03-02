@@ -66,6 +66,9 @@ const mostrarComprasProductos = () => {
     const botonAgregar = document.getElementById(`compras-boton${producto.id}`);
     botonAgregar.addEventListener("click", () => {
       agregarAlCarrito(producto.id);
+      const verCarrito = document.getElementById("verCarrito");
+      verCarrito.innerText = " Tu carrito ";
+      mostrarCarrito();
     });
   });
 };
@@ -89,7 +92,8 @@ const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
 
 verCarrito.addEventListener("click", () => {
-  mostrarCarrito()
+  mostrarCarrito();
+  verCarrito.innerText = " Tu carrito ";
 });
 
 const mostrarCarrito = () => {
@@ -121,23 +125,24 @@ const mostrarCarrito = () => {
   calcularTotal();
 };
 
-const ocultarCarrito= () =>{
-
-  const ocultar = document.getElementById("verCarrito")
+const ocultarCarrito = () => {
+  const ocultar = document.getElementById("verCarrito");
   ocultar.style.display = "none";
-}
+};
 
 const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
   producto.cantidad === 1 ? carrito.splice(indice, 1) : producto.cantidad--;
   mostrarCarrito();
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const sumarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   producto.cantidad++;
   mostrarCarrito();
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 const eliminarDelCarrito = (id) => {
@@ -149,7 +154,7 @@ const eliminarDelCarrito = (id) => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
-const total = document.getElementById("total");
+//const total = document.getElementById("total");
 
 const calcularTotal = () => {
   let totalCompra = 0;
