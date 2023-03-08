@@ -65,7 +65,7 @@ const mostrarComprasProductos = () => {
     comprasProductos.appendChild(div);
     const botonAgregar = document.getElementById(`compras-boton${producto.id}`);
     botonAgregar.addEventListener("click", () => {
-      agregarAlCarrito(producto.id);
+      sumarAlCarrito(producto.id);
       const verCarrito = document.getElementById("verCarrito");
       verCarrito.innerText = " Tu carrito ";
       mostrarCarrito();
@@ -73,19 +73,6 @@ const mostrarComprasProductos = () => {
   });
 };
 mostrarComprasProductos();
-
-// AGREGAR AL CARRITO COMPRAS
-const agregarAlCarrito = (id) => {
-  const carritoCompras = carrito.find((producto) => producto.id === id);
-  if (carritoCompras) {
-    carritoCompras.cantidad++;
-  } else {
-    const producto = arrayProductos.find((producto) => producto.id === id);
-    carrito.push(producto);
-  }
-  calcularTotal();
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-};
 
 // MOSTRAR CARRITO COMPRAS
 const contenedorCarrito = document.getElementById("contenedorCarrito");
@@ -115,7 +102,7 @@ const mostrarCarrito = () => {
     });
     const sumarProducto = document.getElementById(`sumar${producto.id}`);
     sumarProducto.addEventListener("click", () => {
-      sumarDelCarrito(producto.id);
+      sumarAlCarrito(producto.id);
     });
     const eliminarProducto = document.getElementById(`eliminar${producto.id}`);
     eliminarProducto.addEventListener("click", () => {
@@ -123,11 +110,6 @@ const mostrarCarrito = () => {
     });
   });
   calcularTotal();
-};
-
-const ocultarCarrito = () => {
-  const ocultar = document.getElementById("verCarrito");
-  ocultar.style.display = "none";
 };
 
 const restarDelCarrito = (id) => {
@@ -138,7 +120,7 @@ const restarDelCarrito = (id) => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
-const sumarDelCarrito = (id) => {
+const sumarAlCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   producto.cantidad++;
   mostrarCarrito();

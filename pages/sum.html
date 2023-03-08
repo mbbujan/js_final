@@ -51,8 +51,45 @@
       </nav>
     </header>
     <main>
-      <div class="paginaConstruccion">
-           <img src="../img/enConstruccion.jpg" alt="Pagina en construccion"/>
+      <div class="sum">
+        <div class="container-calendar">
+          <h3 id="monthAndYear"></h3>
+          <div class="button-container-calendar">
+            <button id="previous" onclick="previous()">&#8249;</button>
+            <button id="next" onclick="next()">&#8250;</button>
+          </div>
+          <table class="table-calendar" id="calendar" data-lang="en">
+            <thead id="thead-month"></thead>
+            <tbody id="calendar-body"></tbody>
+          </table>
+          <div class="footer-container-calendar">
+            <label for="month">Ir a: </label>
+            <select id="month" onchange="jump()">
+              <option value="0">Ene</option>
+              <option value="1">Feb</option>
+              <option value="2">Mar</option>
+              <option value="3">Abr</option>
+              <option value="4">May</option>
+              <option value="5">Jun</option>
+              <option value="6">Jul</option>
+              <option value="7">Ago</option>
+              <option value="8">Sep</option>
+              <option value="9">Oct</option>
+              <option value="10">Nov</option>
+              <option value="11">Dic</option>
+            </select>
+            <select id="year" onchange="jump()"></select>
+          </div>
+        </div>
+
+        <div class="sum-referencias">
+          <h3>Referencias</h3>
+          <ul>
+            <li>Color Verde: disponible turno día (11 a 16hs)</li>
+            <li>Color Turquesa: disponible turno noche (18 a 2am)</li>
+            <li>Color Rojo: No disponible</li>
+          </ul>
+        </div>
       </div>
     </main>
     <footer></footer>
@@ -62,5 +99,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/header.js"></script>
+    <script src="../js/sum.js"></script>
   </body>
 </html>
