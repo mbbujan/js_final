@@ -111,7 +111,6 @@ const mostrarCarrito = () => {
   });
   calcularTotal();
 };
-
 const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
@@ -122,7 +121,12 @@ const restarDelCarrito = (id) => {
 
 const sumarAlCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
-  producto.cantidad++;
+  if (producto) {
+    producto.cantidad++;
+  } else {
+    const nuevoProducto = arrayProductos.find((producto) => producto.id === id);
+    carrito.push(nuevoProducto);
+  }
   mostrarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
