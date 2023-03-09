@@ -1,0 +1,7 @@
+
+  [
+    {"id":1, "nombre": "Llave Garage", "precio":500, "img": "../img/llaveGarage.png", "cantidad":1},
+    {"id":2, "nombre": "Llave Entrada", "precio":200, "img": "../img/llaveIngreso.jpeg", "cantidad":1},
+    {"id":3, "nombre": "Fichas Laundry", "precio":120, "img": "../img/laundry.png", "cantidad":1},
+    {"id":4, "nombre": "Control Remoto Garage", "precio":1700, "img": "../img/controlRemoto.jpeg", "cantidad":1}
+  ]
