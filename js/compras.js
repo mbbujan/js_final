@@ -64,6 +64,7 @@ const mostrarComprasProductos = () => {
 
     comprasProductos.appendChild(div);
     const botonAgregar = document.getElementById(`compras-boton${producto.id}`);
+
     botonAgregar.addEventListener("click", () => {
       sumarAlCarrito(producto.id);
       const verCarrito = document.getElementById("verCarrito");
@@ -115,7 +116,17 @@ const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
   producto.cantidad === 1 ? carrito.splice(indice, 1) : producto.cantidad--;
+  Toastify({
+    text: "Se quito un producto del carrito",
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
   mostrarCarrito();
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
@@ -128,6 +139,15 @@ const sumarAlCarrito = (id) => {
     carrito.push(nuevoProducto);
   }
   mostrarCarrito();
+  Toastify({
+    text: "Se agregó un producto al carrito",
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
@@ -136,11 +156,18 @@ const eliminarDelCarrito = (id) => {
   producto.cantidad = 1;
   const indice = carrito.indexOf(producto);
   carrito.splice(indice, 1);
+  Toastify({
+    text: "Se eliminó el producto del carrito",
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
   mostrarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
-//const total = document.getElementById("total");
 
 const calcularTotal = () => {
   let totalCompra = 0;
@@ -160,12 +187,20 @@ vaciarCarrito.addEventListener("click", () => {
 
 const vaciar = () => {
   carrito = [];
+  Toastify({
+    text: "Se vació el carrito",
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
   mostrarCarrito();
   localStorage.clear();
 };
 
 const finalizarCompra = document.getElementById("finalizarCompra");
-
 finalizarCompra.addEventListener("click", () => {
   let totalCompra = 0;
   carrito.forEach((producto) => {
