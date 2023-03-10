@@ -1,4 +1,3 @@
-
 let carrito = [];
 const listaProductos = "../json/productos.json";
 
@@ -9,13 +8,13 @@ if (localStorage.getItem("carrito")) {
 //         MOSTRAMOS PRODUCTOS
 const comprasProductos = document.getElementById("comprasProductos");
 
-  fetch(listaProductos)
-    .then(respuesta => respuesta.json())
-    .then(arrayProductos => {
-        arrayProductos.forEach( producto => {
-          const div = document.createElement("div");
-          div.classList.add("col-xl-3", "col-md-6", "col-sm-12");
-          div.innerHTML = `<div class="card text-center" >
+fetch(listaProductos)
+  .then((respuesta) => respuesta.json())
+  .then((arrayProductos) => {
+    arrayProductos.forEach((producto) => {
+      const div = document.createElement("div");
+      div.classList.add("col-xl-3", "col-md-6", "col-sm-12");
+      div.innerHTML = `<div class="card text-center" >
                               <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}" >
                               <div>
                                   <h5 class="card-title"> ${producto.nombre} </h5>
@@ -23,21 +22,22 @@ const comprasProductos = document.getElementById("comprasProductos");
                                   <button class="btn" id="compras-boton${producto.id}" >Solicitar</button>
                               </div>
                           </div>`;
-      
-          comprasProductos.appendChild(div);
-          const botonAgregar = document.getElementById(`compras-boton${producto.id}`);
-      
-          botonAgregar.addEventListener("click", () => {
-            sumarAlCarrito(producto.id);
-            const verCarrito = document.getElementById("verCarrito");
-            verCarrito.innerText = " Tu carrito ";
-            mostrarCarrito();
-          });
-        })
-    })
-    .catch(error => console.log(error))
-    .finally( () => console.log("Proceso finalizado"))
 
+      comprasProductos.appendChild(div);
+      const botonAgregar = document.getElementById(
+        `compras-boton${producto.id}`
+      );
+
+      botonAgregar.addEventListener("click", () => {
+        sumarAlCarrito(producto.id);
+        const verCarrito = document.getElementById("verCarrito");
+        verCarrito.innerText = " Tu carrito ";
+        mostrarCarrito();
+      });
+    });
+  })
+  .catch((error) => console.log(error))
+  .finally(() => console.log("Cargados todos los productos"));
 
 // MOSTRAR CARRITO COMPRAS
 const contenedorCarrito = document.getElementById("contenedorCarrito");
@@ -80,6 +80,7 @@ const restarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
   const indice = carrito.indexOf(producto);
   producto.cantidad === 1 ? carrito.splice(indice, 1) : producto.cantidad--;
+  mostrarCarrito();
   Toastify({
     text: "Se quito un producto del carrito",
     duration: 3000,
@@ -89,7 +90,7 @@ const restarDelCarrito = (id) => {
       background: "linear-gradient(to right, #00b09b, #96c93d)",
     },
   }).showToast();
-  mostrarCarrito();
+  
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
@@ -99,18 +100,12 @@ const sumarAlCarrito = (id) => {
   if (producto) {
     producto.cantidad++;
   } else {
-    fetch(listaProductos)
-    .then(respuesta => respuesta.json())
-    .then(arrayProductos => {     
- 
-    const nuevoProducto = arrayProductos.find((producto) => producto.id === id);
-    carrito.push(nuevoProducto);
-    });  
-  }
+    sumarNuevoProducto(id);
+}
   mostrarCarrito();
   Toastify({
     text: "Se agregó un producto al carrito",
-    duration: 3000,
+    duration: 1000,
     gravity: "top",
     position: "right",
     style: {
@@ -119,6 +114,17 @@ const sumarAlCarrito = (id) => {
   }).showToast();
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
+
+const sumarNuevoProducto = (id) => {
+  fetch(listaProductos)
+  .then((respuesta) => respuesta.json())
+  .then((arrayProductos) => {
+    const nuevoProducto = arrayProductos.find(
+      (producto) => producto.id === id
+    );
+    carrito.push(nuevoProducto);
+  });
+}
 
 const eliminarDelCarrito = (id) => {
   const producto = carrito.find((producto) => producto.id === id);
