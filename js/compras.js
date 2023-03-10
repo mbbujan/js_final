@@ -9,7 +9,6 @@ if (localStorage.getItem("carrito")) {
 //         MOSTRAMOS PRODUCTOS
 const comprasProductos = document.getElementById("comprasProductos");
 
-const mostrarComprasProductos = () => {
   fetch(listaProductos)
     .then(respuesta => respuesta.json())
     .then(arrayProductos => {
@@ -38,8 +37,7 @@ const mostrarComprasProductos = () => {
     })
     .catch(error => console.log(error))
     .finally( () => console.log("Proceso finalizado"))
-};
-mostrarComprasProductos();
+
 
 // MOSTRAR CARRITO COMPRAS
 const contenedorCarrito = document.getElementById("contenedorCarrito");
