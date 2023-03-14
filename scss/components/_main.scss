@@ -87,8 +87,10 @@
 .sum {
   margin: 15px auto;
   max-width: 1100px;
+  @include estructura-grid(grid, 4fr 1fr 1fr 1fr, 1);
+  grid-template-areas: "sum-calendario sum-formulario";
 
-  .container-calendar {
+  .sum-calendario {
     background: #ffffff;
     padding: 15px;
     max-width: 475px;
@@ -177,8 +179,13 @@
     padding: 5px 1em;
   }
 
-  .sum-referencias{
-    margin-left: 40px;
-
+  .sum-formulario {
+    margin-top: 80px;
+    p {
+      margin-top: 20px;
+    }
+    #sum-boton {
+      @include estructura-boton(140px, 35px, 50px, 0px, 30px, 0px);
+    }
   }
 }

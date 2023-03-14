@@ -19,22 +19,22 @@ document.getElementById("year").innerHTML = createYear;
 var calendar = document.getElementById("calendar");
 var lang = calendar.getAttribute("data-lang");
 
-var months = "";
+var months = [];
 var days = "";
 
 var monthDefault = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
 ];
 
 var dayDefault = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
@@ -56,7 +56,6 @@ if (lang == "en") {
     "October",
     "November",
     "December",
-    
   ];
   days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 } else {
@@ -93,6 +92,39 @@ function jump() {
   showCalendar(currentMonth, currentYear);
 }
 
+function diaActual(date, month, year) {
+  let hoy = false;
+  if (
+    date === today.getDate() &&
+    year === today.getFullYear() &&
+    month === today.getMonth()
+  ) {
+    hoy = true;
+  }
+  return hoy;
+}
+
+function getDate() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd = '0'+dd
+  } 
+
+  if(mm<10) {
+      mm = '0'+mm
+  } 
+
+  today = yyyy + '-' + mm + '-' + dd;
+  console.log(today);
+  document.getElementById("fecha").value = today;
+}
+window.onload = function() {
+  getDate();
+};
 function showCalendar(month, year) {
   var firstDay = new Date(year, month).getDay();
 
@@ -107,40 +139,44 @@ function showCalendar(month, year) {
   var date = 1;
   for (var i = 0; i < 6; i++) {
     var row = document.createElement("tr");
-
     for (var j = 0; j < 7; j++) {
-      if (i === 0 && j < firstDay) {
-        cell = document.createElement("td");
-        cellText = document.createTextNode("");
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      } else if (date > daysInMonth(month, year)) {
-        break;
-      } else {
-        cell = document.createElement("td");
-        cell.setAttribute("data-date", date);
-        cell.setAttribute("data-month", month + 1);
-        cell.setAttribute("data-year", year);
-        cell.setAttribute("data-month_name", months[month]);
-        cell.className = "date-picker";
-        cell.innerHTML = "<span>" + date + "</span>";
-
-        if (
-          date === today.getDate() &&
-          year === today.getFullYear() &&
-          month === today.getMonth()
-        ) {
-          cell.className = "date-picker selected";
+      if (date <= daysInMonth(month, year)) {
+        if (i === 0 && j < firstDay) {
+          cell = document.createElement("td");
+          cellText = document.createTextNode("");
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        } else {
+          cell = document.createElement("td");
+          cell.setAttribute("data-date", date);
+          cell.setAttribute("data-month", month + 1);
+          cell.setAttribute("data-year", year);
+          cell.setAttribute("data-month_name", months[month]);
+          cell.className = "date-picker";
+          cell.innerHTML = "<span>" + date + "</span>";
+          if (diaActual(date, month, year)) {
+            cell.className = "date-picker selected";
+          }
+          row.appendChild(cell);
+          date++;
         }
-        row.appendChild(cell);
-        date++;
       }
     }
-
     tbl.appendChild(row);
   }
 }
 
 function daysInMonth(iMonth, iYear) {
   return 32 - new Date(iYear, iMonth, 32).getDate();
+}
+
+function reservar() {
+  Swal.fire({
+    title: "Reserva Solicitada",
+    icon: "warning",
+    text: "Se envió la solicitud. En las próximas 48hs hábiles recibirás la confirmación por mail. ",
+    confirmButtonText: "Aceptar",
+    confirmButtonColor: "#DD6B55",
+  });
+
 }

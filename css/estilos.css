@@ -167,8 +167,12 @@ body {
 
 .sum {
   margin: 15px auto;
-  max-width: 1100px; }
-  .sum .container-calendar {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  grid-template-rows: 1;
+  grid-template-areas: "sum-calendario sum-formulario"; }
+  .sum .sum-calendario {
     background: #ffffff;
     padding: 15px;
     max-width: 475px;
@@ -228,5 +232,20 @@ body {
     border: 1px solid #bfc5c5;
     border-radius: 3px;
     padding: 5px 1em; }
-  .sum .sum-referencias {
-    margin-left: 40px; }
+  .sum .sum-formulario {
+    margin-top: 80px; }
+    .sum .sum-formulario p {
+      margin-top: 20px; }
+    .sum .sum-formulario #sum-boton {
+      width: 140px;
+      height: 35px;
+      margin-top: 50px;
+      margin-left: 0px;
+      margin-bottom: 30px;
+      margin-right: 0px;
+      border-radius: 15px;
+      color: white;
+      background-color: black;
+      transition: 1s ease-in; }
+      .sum .sum-formulario #sum-boton:hover {
+        background-color: red; }

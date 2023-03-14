@@ -52,7 +52,7 @@
     </header>
     <main>
       <div class="sum">
-        <div class="container-calendar">
+        <div class="sum-calendario">
           <h3 id="monthAndYear"></h3>
           <div class="button-container-calendar">
             <button id="previous" onclick="previous()">&#8249;</button>
@@ -80,12 +80,6 @@
             </select>
             <select id="year" onchange="jump()"></select>
           </div>
-        </div>
-        <div class="sum-formulario">
-          
-        </div>
-
-        <div class="sum-referencias">
           <h3>Referencias</h3>
           <ul>
             <li>Color Verde: disponible turno día (11 a 16hs)</li>
@@ -93,14 +87,50 @@
             <li>Color Rojo: No disponible</li>
           </ul>
         </div>
+        <div class="sum-formulario">
+          <div>
+            <label for="fecha"
+              >Fecha:
+              <input
+                type="date"
+                name="fecha"
+                placeholder="Fecha "
+                id="fecha"
+                required
+              
+              />
+            </label>
+          </div>
+          <div>
+            <p>Turno:</p>
+
+            <label for="turno"
+              >Día
+              <input type="radio" name="turno" value="dia" required checked />
+            </label>
+
+            <label for="turno"
+              >Noche<input type="radio" name="turno" value="noche"
+            /></label>
+          </div>
+          <input
+            id="sum-boton"
+            type="submit"
+            value="Reservar"
+            onclick="reservar()"
+          />
+        </div>
       </div>
     </main>
     <footer></footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="../js/header.js"></script>
     <script src="../js/sum.js"></script>
   </body>
